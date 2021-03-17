@@ -1,0 +1,139 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/Kenney Thick.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/heart.png" type="Texture" id=2]
+[ext_resource path="res://hud/HUD.gd" type="Script" id=3]
+[ext_resource path="res://assets/audio/pickup2.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/cherry_icon.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 1 )
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -1.5874
+margin_bottom = -1.5874
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+anchor_right = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 20
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+margin_left = 50.0
+margin_top = 20.0
+margin_right = 1230.0
+margin_bottom = 77.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+margin_right = 116.0
+margin_bottom = 57.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 57.0
+texture = ExtResource( 5 )
+stretch_mode = 6
+
+[node name="CherryCountLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/HBoxContainer"]
+margin_left = 68.0
+margin_top = 1.0
+margin_right = 116.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+custom_constants/shadow_as_outline = 5
+text = "0"
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="ScoreLabel" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+margin_left = 120.0
+margin_top = 1.0
+margin_right = 1014.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+custom_constants/shadow_as_outline = 5
+text = "0"
+align = 1
+valign = 1
+
+[node name="LifeBox" type="HBoxContainer" parent="Control/MarginContainer/HBoxContainer"]
+margin_left = 1018.0
+margin_right = 1180.0
+margin_bottom = 57.0
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/HBoxContainer/LifeBox"]
+margin_right = 64.0
+margin_bottom = 57.0
+texture = ExtResource( 2 )
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer/LifeBox"]
+margin_left = 68.0
+margin_top = 15.0
+margin_right = 110.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = " x "
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LifeLabel" type="Label" parent="Control/MarginContainer/HBoxContainer/LifeBox"]
+margin_left = 114.0
+margin_top = 1.0
+margin_right = 162.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 5
+custom_constants/shadow_offset_y = 5
+custom_constants/shadow_as_outline = 5
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -30.0

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/environment/layers/props.png" type="Texture" id=1]
+[ext_resource path="res://house/House.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.347, 17.006 )
+
+[node name="House" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 310, 10, 100, 130 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -7.3833, 35.8171 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_House_body_entered"]
